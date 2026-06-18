@@ -9,8 +9,8 @@ contract DeployNZT48 is Script {
 
     function run() public {
         vm.startBroadcast();
-        address defaultAdmin = vm.envAddress("DEFAULT_ADMIN");
-        NZT48 tokenContract = new NZT48(defaultAdmin);
+        address owner = vm.envAddress("OWNER");
+        NZT48 tokenContract = new NZT48(owner);
         console.log("NZT-48 deployed at:", address(tokenContract));
         vm.stopBroadcast();
     }
