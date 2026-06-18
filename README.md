@@ -110,3 +110,10 @@ OWNER=0x... forge script script/NZT48.s.sol:DeployNZT48 \
 
 For local experiments, use one of Anvil's funded development keys. Do not use a
 mainnet key for local play.
+
+## License And Contributions
+
+The active standalone source in this repo is MIT licensed. Contribution policy
+is intentionally narrow: this is a public artifact for an experimental coin, not
+a broad community roadmap. See [`CONTRIBUTING.md`](CONTRIBUTING.md) and
+[`SECURITY.md`](SECURITY.md).

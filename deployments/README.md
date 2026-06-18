@@ -5,6 +5,10 @@ They were created from the legacy source in
 `deployments/legacy-source/src/NZT48.sol`, not from the current simplified
 contract in `src/NZT48.sol`.
 
+The files in `deployments/legacy-source/` preserve their original SPDX headers
+as deployment provenance. The active standalone source in `src/`, `script/`, and
+`test/` is MIT licensed.
+
 ## Current Deployments
 
 | Network | Chain ID | Address | Transaction |
