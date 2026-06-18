@@ -1,0 +1,76 @@
+{
+  "contract": "NZT48",
+  "note": "These deployments were migrated from the older dax-yield working tree. They were created from deployments/legacy-source/src/NZT48.sol, not the current simplified src/NZT48.sol.",
+  "currentDeployments": {
+    "ethereum-mainnet": {
+      "chainId": 1,
+      "address": "0x30a580e9fcbdec9784122963cc3762afba57f10d",
+      "transactionHash": "0x27cd33fc364d8d2f12a58bb3378a45e50e475541ebfac0300306352176a3dbbb",
+      "blockNumber": 21375800,
+      "deployedAt": "2024-12-11T00:51:01Z",
+      "deployer": "0xfce75e6735ea53c1a2657dda6042c799b1ab3f01",
+      "constructorArgs": {
+        "defaultAdmin": "0x2e4cac1195e3f1f500AFE85d09c13d78a8636f32"
+      },
+      "explorer": {
+        "address": "https://etherscan.io/address/0x30a580e9fcbdec9784122963cc3762afba57f10d",
+        "transaction": "https://etherscan.io/tx/0x27cd33fc364d8d2f12a58bb3378a45e50e475541ebfac0300306352176a3dbbb"
+      },
+      "liveCheck": {
+        "name": "NZT-48",
+        "symbol": "NZT-48",
+        "decimals": 18,
+        "defaultAmount": "5000000000000000000000",
+        "totalSupply": "50000000000000000000000",
+        "runtimeBytecodeHash": "0xaf5ec1aabc21eb98359d4e20a02dbbde9e4bc51f0d913382b6d1c42e3388b915"
+      },
+      "foundryBroadcast": "deployments/foundry/NZT48.s.sol/1/run-1733878261.json"
+    },
+    "sepolia": {
+      "chainId": 11155111,
+      "address": "0x30a580e9fcbdec9784122963cc3762afba57f10d",
+      "transactionHash": "0xc919ba8ca2307d90ce7f2e0a16cb72ebd617764dfc5ff4f20a766cbf2bde2923",
+      "blockNumber": 7253840,
+      "deployedAt": "2024-12-11T01:08:40Z",
+      "deployer": "0xfce75e6735ea53c1a2657dda6042c799b1ab3f01",
+      "constructorArgs": {
+        "defaultAdmin": "0x2e4cac1195e3f1f500AFE85d09c13d78a8636f32"
+      },
+      "explorer": {
+        "address": "https://sepolia.etherscan.io/address/0x30a580e9fcbdec9784122963cc3762afba57f10d",
+        "transaction": "https://sepolia.etherscan.io/tx/0xc919ba8ca2307d90ce7f2e0a16cb72ebd617764dfc5ff4f20a766cbf2bde2923"
+      },
+      "liveCheck": {
+        "name": "NZT-48",
+        "symbol": "NZT-48",
+        "decimals": 18,
+        "defaultAmount": "5000000000000000000000",
+        "totalSupply": "0",
+        "runtimeBytecodeHash": "0xa4c7510a1e5a172f06fcb9e08ec46e6dce28aadeb1e8a0b23a600125f2b1e9aa"
+      },
+      "foundryBroadcast": "deployments/foundry/NZT48.s.sol/11155111/run-1733879320.json"
+    }
+  },
+  "historicalDeployments": [
+    {
+      "network": "sepolia",
+      "chainId": 11155111,
+      "address": "0xdaa8b1caa8a239d2582dfc425a92db0d3b3f743e",
+      "transactionHash": "0x9e69f1c33303634a7a86334e47ae4f365e3eef9388db20b454baa4ca56735020",
+      "blockNumber": 7234983,
+      "deployedAt": "2024-12-08T06:16:49Z",
+      "deployer": "0xfce75e6735ea53c1a2657dda6042c799b1ab3f01",
+      "constructorArgs": {
+        "defaultAdmin": "0x2e4cac1195e3f1f500AFE85d09c13d78a8636f32"
+      },
+      "explorer": {
+        "address": "https://sepolia.etherscan.io/address/0xdaa8b1caa8a239d2582dfc425a92db0d3b3f743e",
+        "transaction": "https://sepolia.etherscan.io/tx/0x9e69f1c33303634a7a86334e47ae4f365e3eef9388db20b454baa4ca56735020"
+      },
+      "liveCheck": {
+        "runtimeBytecodeHash": "0x82fa29b2eb016506090713c728fa2ebeaea88bc1103eb1e883c172bca4bf7be3"
+      },
+      "foundryBroadcast": "deployments/foundry/NZT48.s.sol/11155111/run-1733638609.json"
+    }
+  ]
+}

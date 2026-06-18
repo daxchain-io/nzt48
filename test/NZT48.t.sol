@@ -43,6 +43,58 @@ contract NZT48Test is Test {
         assertEq(token.totalSupply(), 10_000 ether);
     }
 
+    function testZeroValueTransferStillMaterializesDefaultBalances() public {
+        vm.prank(alice);
+        assertTrue(token.transfer(bob, 0));
+
+        assertEq(token.balanceOf(alice), 5_000 ether);
+        assertEq(token.balanceOf(bob), 5_000 ether);
+        assertEq(token.totalSupply(), 10_000 ether);
+    }
+
+    function testSelfTransferMaterializesOnlyOneDefaultBalance() public {
+        vm.prank(alice);
+        assertTrue(token.transfer(alice, 100 ether));
+
+        assertEq(token.balanceOf(alice), 5_000 ether);
+        assertEq(token.totalSupply(), 5_000 ether);
+    }
+
+    function testMaterializedRecipientDoesNotReceiveDefaultAgain() public {
+        vm.prank(alice);
+        assertTrue(token.transfer(bob, 100 ether));
+
+        vm.prank(carol);
+        assertTrue(token.transfer(bob, 25 ether));
+
+        assertEq(token.balanceOf(alice), 4_900 ether);
+        assertEq(token.balanceOf(bob), 5_125 ether);
+        assertEq(token.balanceOf(carol), 4_975 ether);
+        assertEq(token.totalSupply(), 15_000 ether);
+    }
+
+    function testAccountDrainedToZeroReadsAsDefaultAgain() public {
+        vm.prank(alice);
+        assertTrue(token.transfer(bob, 5_000 ether));
+
+        assertEq(token.balanceOf(alice), 5_000 ether);
+        assertEq(token.balanceOf(bob), 10_000 ether);
+        assertEq(token.totalSupply(), 10_000 ether);
+    }
+
+    function testDrainedAccountCanMaterializeAgain() public {
+        vm.prank(alice);
+        assertTrue(token.transfer(bob, 5_000 ether));
+
+        vm.prank(alice);
+        assertTrue(token.transfer(carol, 1 ether));
+
+        assertEq(token.balanceOf(alice), 4_999 ether);
+        assertEq(token.balanceOf(bob), 10_000 ether);
+        assertEq(token.balanceOf(carol), 5_001 ether);
+        assertEq(token.totalSupply(), 20_000 ether);
+    }
+
     function testTransferFromMaterializesDefaultBalances() public {
         vm.prank(alice);
         assertTrue(token.approve(spender, 100 ether));
