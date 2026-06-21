@@ -2,6 +2,7 @@
 pragma solidity ^0.8.22;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {IERC20Errors} from "@openzeppelin/contracts/interfaces/draft-IERC6093.sol";
 import {Test} from "forge-std/Test.sol";
 import {NZT48} from "../src/NZT48.sol";
 
@@ -134,5 +135,28 @@ contract NZT48Test is Test {
         vm.prank(alice);
         vm.expectRevert(abi.encodeWithSelector(Ownable.OwnableUnauthorizedAccount.selector, alice));
         token.setDefaultAmount(1 ether);
+    }
+
+    function testFreshAccountCannotSendMoreThanDefault() public {
+        // Alice reads as holding the default, but only that default materializes,
+        // so she cannot move more than it.
+        vm.prank(alice);
+        vm.expectRevert(
+            abi.encodeWithSelector(IERC20Errors.ERC20InsufficientBalance.selector, alice, 5_000 ether, 5_001 ether)
+        );
+        // forge-lint: disable-next-line(erc20-unchecked-transfer)
+        token.transfer(bob, 5_001 ether);
+    }
+
+    function testTransferFromRevertsWithoutSufficientAllowance() public {
+        vm.prank(alice);
+        assertTrue(token.approve(spender, 10 ether));
+
+        vm.prank(spender);
+        vm.expectRevert(
+            abi.encodeWithSelector(IERC20Errors.ERC20InsufficientAllowance.selector, spender, 10 ether, 100 ether)
+        );
+        // forge-lint: disable-next-line(erc20-unchecked-transfer)
+        token.transferFrom(alice, bob, 100 ether);
     }
 }
